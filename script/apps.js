@@ -1,4 +1,5 @@
-// taking month date and time dynamically
+// date and time
+
 
 const days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
 const months = ['JAN', 'FEB', 'MAR', 'APR', 'May', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
@@ -62,7 +63,7 @@ for (let cardBtn of cardBtns) {
       // if all task completed it will show another alert....
 
       if (taskLeft === 0) {
-        alert('Congrats!!! You have completed all the tasks');
+        alert('Congrats!! You have completed all the tasks');
       }
 
 
@@ -86,6 +87,7 @@ document.getElementById('dlt-btn').addEventListener('click', function () {
 
 let a = 0;
 document.getElementById('rainbow-btn').addEventListener('click', function () {
+
   a += 30;
   document.getElementById('rainbow-btn').style.transform = `rotate(${a}deg)`;
   let colorStr = "0123456789ABCDEF";
@@ -97,12 +99,7 @@ document.getElementById('rainbow-btn').addEventListener('click', function () {
   }
 
   document.body.style.backgroundColor = color;
+  document.getElementsByTagName('main')[0].style.backgroundColor = color;
 
-  const mainElement = document.getElementsByTagName('main')[0];
-  if (mainElement) {
-    mainElement.style.backgroundColor = color;
-  }
+
 });
-
-
-
