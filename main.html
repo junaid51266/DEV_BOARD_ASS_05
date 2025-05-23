@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A5-Dev-Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --font-poppins: "Poppins", sans-serif;
+        --color-primary: #f4f7ff;
+        --color-primary2: rgba(55, 82, 253, 0.2);
+      }
+    </style>
+  </head>
+  <body class="bg-[#f4f7ff] font-[poppins]">
+    <header>
+      <nav
+        class="navbar max-w-[1500px] mx-auto h-[100px] bg-[white] mt-[24px] rounded-[16px] px-[20px] flex items-center justify-between">
+        <!--- left -->
+        <div class="flex items-center gap-[10px]">
+          <!-- logo Image -->
+          <div>
+            <img src="./assets/logo.png" alt="" />
+          </div>
+          <!-- logo -->
+          <h1 class="font-light text-[35px] text-[#00303C]">
+            Dev<span class="font-bold text-[35px] text-[#00303C]">Board</span>
+          </h1>
+        </div>
+        <!-- right -->
+        <div class="flex w-[225px] items-center gap-[32px]">
+          <!-- tick -->
+          <div
+            class="flex w-[120px] px-[16px] py-[10px] bg-[#f4f7ff] rounded-[32px] items-center justify-center gap-[10px]">
+            <img src="./assets/checkbox.png" alt="" />
+            <h2 id="completed-task-num" class="font-bold text-[32px]">23</h2>
+          </div>
+          <!-- color Change button-->
+          <div
+            class="cursor-pointer transition-all active:scale-[.95]"
+            id="rainbow-btn">
+            <img
+              class="p-[12px] bg-[#F4F7FF] rounded-[32px] w-full"
+              src="./assets/theme-btn.png"
+              alt="" />
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main
+      class="flex max-w-[1500px] mx-auto bg-[#f4f7ff] gap-[20px] mt-[20px] mb-[60px] rounded-[16px]">
+      <!-- board section -->
+      <div class="w-9/12 bg-white rounded-[16px]">
+        <!-- top section -->
+        <div class="mt-[24px] mb-[32px] mx-[24px] flex gap-[24px]">
+          <!-- task assigned -->
+          <div
+            class="w-1/4 h-[128px] flex items-center bg-primary gap-[20px] rounded-[12px] justify-center">
+            <!-- checkbox -->
+            <div class="w-[64px] p-[18px] bg-white rounded-[50%]">
+              <img src="./assets/checkbox.png" alt="" />
+            </div>
+            <!-- text -->
+            <div class="flex flex-col justify-center">
+              <h1 class="font-medium text-[14px] text-[#315863]">
+                Task Assigned
+              </h1>
+              <h1
+                id="assigned-task-number"
+                class="font-bold text-[32px] leading-[33px]">
+                06
+              </h1>
+            </div>
+          </div>
+          <!-- Discover Something -->
+          <div
+            id="discover-btn"
+            onclick="toggleBlog()"
+            class="w-2/4 flex items-center bg-primary h-[128px] gap-[20px] rounded-[12px] bg-gradient-to-r from-[#3752FD] from-0% via-[#6C7FFA] via-[53%] to-[#9BA8F8] to-100% text-white font-medium text-[24px] pl-[40px] cursor-pointer">
+            <img src="./assets/board.png" alt="" />
+            <p class="font-medium text-[24px]">
+              Discover Something <br />
+              New Today!
+            </p>
+          </div>
+          <!-- date -->
+          <div
+            class="w-1/4 h-[128px] flex items-center bg-primary gap-[10px] rounded-[12px] justify-center">
+            <!-- checkbox -->
+            <div class="w-[64px] p-[18px] bg-white rounded-[50%]">
+              <img src="./assets/calender.png" alt="" />
+            </div>
+            <!-- text -->
+            <div class="flex flex-col justify-center">
+              <h1
+                id="today"
+                class="font-medium text-[22px] text-[#315863]"></h1>
+              <h1
+                id="todays-date"
+                class="font-bold text-[22px] leading-[33px]"></h1>
+            </div>
+          </div>
+        </div>
+        <!-- cards section -->
+        <div
+          class="pt-[32px] mb-[32px] grid grid-cols-3 px-[24px] border-t-[2px] border-dashed border-primary2 gap-[36px]">
+          <!-- card -->
+          <div class="p-[24px] bg-primary space-y-[16px] rounded-[16px]">
+            <p
+              class="card-title px-[16px] py-[8px] bg-white w-fit rounded-[8px] text-base font-normal text-[#00303C]">
+              ShopEase
+            </p>
+            <p class="text-[#00303C] text-[24px] font-medium">
+              Fix Mobile Button Issue
+            </p>
+
+            <div class="p-[16px] bg-white rounded-[8px] mb-[14px]">
+              <p class="line-clamp-2 text-[rgba(0,0,0,.5)]">
+                Debug using Chrome DevTools, check for overlapping elements and
+                ensure onClick works properly and ensure onClick works properly
+              </p>
+            </div>
+
+            <div
+              class="pt-[13px] border-t-[2px] border-dashed border-primary2 flex justify-between items-center">
+              <!-- date -->
+              <div class="flex flex-col items-start justify-center">
+                <small class="text-[rgba(0,0,0,.5)]">Deadline</small>
+                <time datetime="2025-03-21">21 March 2025</time>
+              </div>
+              <button
+                class="px-[20px] py-[10px] bg-[#3752FD] text-white rounded-[8px] cursor-pointer card-btn shadow-[0px_2px_2px_rgba(0,0,0,.5)] transition-all active:scale-95 active:shadow-none">
+                Completed
+              </button>
+            </div>
+          </div>
+          <!-- card -->
+          <div class="p-[24px] bg-primary space-y-[16px] rounded-[16px]">
+            <p
+              class="card-title px-[16px] py-[8px] bg-white w-fit rounded-[8px] text-base font-normal text-[#00303C]">
+              CloudSync
+            </p>
+            <p class="text-[#00303C] text-[24px] font-medium">Add Dark Mode</p>
+
+            <div class="p-[16px] bg-white rounded-[8px] mb-[14px]">
+              <p class="line-clamp-2 text-[rgba(0,0,0,.5)]">
+                DStore the user's preference in localStorage, update CSS
+                variables dynamically, and apply a smooth transition effect.
+              </p>
+            </div>
+
+            <div
+              class="pt-[13px] border-t-[2px] border-dashed border-primary2 flex justify-between items-center">
+              <!-- date -->
+              <div class="flex flex-col items-start justify-center">
+                <small class="text-[rgba(0,0,0,.5)]">Deadline</small>
+                <time datetime="2025-03-21">21 March 2025</time>
+              </div>
+              <button
+                class="px-[20px] py-[10px] bg-[#3752FD] text-white rounded-[8px] cursor-pointer card-btn shadow-[0px_2px_2px_rgba(0,0,0,.5)] transition-all active:scale-95 active:shadow-none">
+                Completed
+              </button>
+            </div>
+          </div>
+          <!-- card -->
+          <div class="p-[24px] bg-primary space-y-[16px] rounded-[16px]">
+            <p
+              class="card-title px-[16px] py-[8px] bg-white w-fit rounded-[8px] text-base font-normal text-[#00303C]">
+              SwiftPay
+            </p>
+            <p class="text-[#00303C] text-[24px] font-medium">
+              Optimize Home page 
+            </p>
+
+            <div class="p-[16px] bg-white rounded-[8px] mb-[14px]">
+              <p class="line-clamp-2 text-[rgba(0,0,0,.5)]">
+                Debug using Chrome DevTools, check for overlapping elements, and
+                ensure onClick works properly and ensure onClick works properly
+              </p>
+            </div>
+
+            <div
+              class="pt-[13px] border-t-[2px] border-dashed border-primary2 flex justify-between items-center">
+              <!-- date -->
+              <div class="flex flex-col items-start justify-center">
+                <small class="text-[rgba(0,0,0,.5)]">Deadline</small>
+                <time datetime="2025-03-21">21 March 2025</time>
+              </div>
+              <button
+                class="px-[20px] py-[10px] bg-[#3752FD] text-white rounded-[8px] cursor-pointer card-btn shadow-[0px_2px_2px_rgba(0,0,0,.5)] transition-all active:scale-95 active:shadow-none">
+                Completed
+              </button>
+            </div>
+          </div>
+          <!-- card -->
+          <div class="p-[24px] bg-primary space-y-[16px] rounded-[16px]">
+            <p
+              class="card-title px-[16px] py-[8px] bg-white w-fit rounded-[8px] text-base font-normal text-[#00303C]">
+              Meta
+            </p>
+            <p class="text-[#00303C] text-[24px] font-medium">
+              Add new emoji 🤲
+            </p>
+
+            <div class="p-[16px] bg-white rounded-[8px] mb-[14px]">
+              <p class="line-clamp-2 text-[rgba(0,0,0,.5)]">
+                Debug using Chrome DevTools, check for overlapping elements, and
+                ensure onClick works properly and ensure onClick works properly
+              </p>
+            </div>
+
+            <div
+              class="pt-[13px] border-t-[2px] border-dashed border-primary2 flex justify-between items-center">
+              <!-- date -->
+              <div class="flex flex-col items-start justify-center">
+                <small class="text-[rgba(0,0,0,.5)]">Deadline</small>
+                <time datetime="2025-03-21">21 March 2025</time>
+              </div>
+              <button
+                class="px-[20px] py-[10px] bg-[#3752FD] text-white rounded-[8px] cursor-pointer card-btn shadow-[0px_2px_2px_rgba(0,0,0,.5)] transition-all active:scale-95 active:shadow-none">
+                Completed
+              </button>
+            </div>
+          </div>
+          <!-- card -->
+          <div class="p-[24px] bg-primary space-y-[16px] rounded-[16px]">
+            <p
+              class="card-title px-[16px] py-[8px] bg-white w-fit rounded-[8px] text-base font-normal text-[#00303C]">
+              Google LLC
+            </p>
+            <p class="text-[#00303C] text-[24px] font-medium">
+              Integrate OpenAI API
+            </p>
+
+            <div class="p-[16px] bg-white rounded-[8px] mb-[14px]">
+              <p class="line-clamp-2 text-[rgba(0,0,0,.5)]">
+                Debug using Chrome DevTools, check for overlapping elements, and
+                ensure onClick works properly and ensure onClick works properly
+              </p>
+            </div>
+
+            <div
+              class="pt-[13px] border-t-[2px] border-dashed border-primary2 flex justify-between items-center">
+              <!-- date -->
+              <div class="flex flex-col items-start justify-center">
+                <small class="text-[rgba(0,0,0,.5)]">Deadline</small>
+                <time datetime="2025-03-21">21 March 2025</time>
+              </div>
+              <button
+                class="px-[20px] py-[10px] bg-[#3752FD] text-white rounded-[8px] cursor-pointer card-btn shadow-[0px_2px_2px_rgba(0,0,0,.5)] transition-all active:scale-95 active:shadow-none">
+                Completed
+              </button>
+            </div>
+          </div>
+          <!-- card -->
+          <div class="p-[24px] bg-primary space-y-[16px] rounded-[16px]">
+            <p
+              class="card-title px-[16px] py-[8px] bg-white w-fit rounded-[8px] text-base font-normal text-[#00303C]">
+              Glassdoar
+            </p>
+            <p class="text-[#00303C] text-[24px] font-medium">
+              Improve Job searching
+            </p>
+
+            <div class="p-[16px] bg-white rounded-[8px] mb-[14px]">
+              <p class="line-clamp-2 text-[rgba(0,0,0,.5)]">
+                Debug using Chrome DevTools, check for overlapping elements, and
+                ensure onClick works properly and ensure onClick works properly
+              </p>
+            </div>
+
+            <div
+              class="pt-[13px] border-t-[2px] border-dashed border-primary2 flex justify-between items-center">
+              <!-- date -->
+              <div class="flex flex-col items-start justify-center">
+                <small class="text-[rgba(0,0,0,.5)]">Deadline</small>
+                <time datetime="2025-03-21">21 March 2025</time>
+              </div>
+              <button
+                class="px-[20px] py-[10px] bg-[#3752FD] text-white rounded-[8px] cursor-pointer card-btn shadow-[0px_2px_2px_rgba(0,0,0,.5)] transition-all active:scale-95 active:shadow-none">
+                Completed
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Activity log -->
+      <div class="w-3/12 bg-white rounded-[16px]">
+        <!-- activity log -->
+        <div
+          class="pt-[24px] pb-[14px] flex justify-center items-center flex-col space-y-[15px] border-b-[2px] border-dashed border-primary2">
+          <!-- logo upper -->
+          <div class="flex gap-[15px] items-center">
+            <div class="w-[24px]">
+              <img class="w-full" src="./assets/activity.png" alt="" />
+            </div>
+            <p class="font-medium text-[20px]">Activity Log</p>
+          </div>
+          <!-- clear button -->
+          <button
+            id="dlt-btn"
+            class="px-[20px] py-[10px] bg-[#3752FD] text-white rounded-[8px] cursor-pointer transition-all active:scale-95">
+            Clear History
+          </button>
+        </div>
+        <!-- completed tasks -->
+
+        <div id="completed-task" class="space-y-[28px] p-[25px]"></div>
+      </div>
+    </main>
+
+    <script src="./scripts/toggle.js"></script>
+    <script src="./scripts/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A5-Dev-Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --font-poppins: "Poppins", sans-serif;
+        --color-primary: #f4f7ff;
+        --color-primary2: rgba(55, 82, 253, 0.2);
+      }
+    </style>
+  </head>
+  <body class="bg-[#f4f7ff] font-[poppins]">
+    <header>
+      <nav
+        class="navbar max-w-[1500px] mx-auto h-[80px] bg-[white] mt-[24px] rounded-[16px] px-[20px] flex items-center justify-between shadow-sm">
+        <!-- left -->
+        <div class="flex items-center gap-[10px]">
+          <!-- logo Image -->
+          <div>
+            <img src="./assets/logo.png" alt="" />
+          </div>
+          <!-- logo -->
+          <h1 class="font-light text-[30px] text-[#00303C]">
+            Dev<span class="font-bold text-[30px] text-[#00303C]">Board</span>
+          </h1>
+        </div>
+
+        <div class="cursor-pointer">
+          <button
+            id="back-btn"
+            onclick="toggleMain()"
+            class="bg-[#3752FD] text-white px-[20px] py-[10px] rounded-[8px] shadow-[0px_2px_2px_rgba(0,0,0,.5)] cursor-pointer active:shadow-sm transition-shadow">
+            Back to Desk
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main class="max-w-[1500px] mx-auto">
+      <h1 class="font-bold text-[25px] text-[#00303C] text-center p-[10px]">
+        Blogs
+      </h1>
+      <!-- Questions -->
+      <div>
+        <!-- Question -->
+        <div class="bg-white mb-[15px] rounded-[8px]">
+          <p class="px-[20px] py-[16px] font-semibold text-[18px]">
+            Question-1: What are the different ways to select an element in the
+            DOM?
+          </p>
+          <p
+            class="px-[20px] py-[16px] border-t-[2px] border-primary2 border-dashed text-[rgba(0,0,0,.5)] text-[18px]">
+            to get a specific element by id, we can write=> <br />
+            <b>document.getElementById('id_name')</b> <br />
+            to get a specific element by class, we can write => <br />
+            <b>document.getElementsByClassName('class_name')</b> <br />
+            to get a specific element by tag name, we can write => <br />
+            <b>document.getElementsByTagName('Tag_name')</b> <br /><br />there
+            is also two more way.<br />
+            <b>document.querySelectorAll('.class_name')</b> <br />
+            <b>document.querySelector('#id_name')</b> <br />
+            if we write, <b>document.querySelector('.class_name')</b> , it will
+            return the first occurance of the element..
+          </p>
+        </div>
+        <!-- Question -->
+        <div class="bg-white mb-[15px] rounded-[8px]">
+          <p class="px-[20px] py-[16px] font-semibold text-[18px]">
+            Question-2: What is the difference between innerHTML, innerText, and
+            textContent ?
+          </p>
+          <p
+            class="px-[20px] py-[16px] border-t-[2px] border-primary2 border-dashed text-[rgba(0,0,0,.5)] text-[16px]">
+            <b>innerHTML:</b><br />
+            Used when you need HTML structure inside an element. <br />
+            Reads all HTML tags inside the element. <br />
+            <br />
+            <b>innerText:</b> <br />
+            Retrieves only visible text (ignores hidden text). <br />
+            Does not include HTML tags. <br />
+            <br />
+            <b>textContent:</b> <br />
+            Retrieves all text content, even from hidden elements. <br />
+            Does not include HTML. <br />
+          </p>
+        </div>
+        <!-- Question -->
+        <div class="bg-white mb-[15px] rounded-[8px]">
+          <p class="px-[20px] py-[16px] font-semibold text-[18px]">
+            Question-3: What is event delegation in the DOM?
+          </p>
+          <p
+            class="px-[20px] py-[16px] border-t-[2px] border-primary2 border-dashed text-[rgba(0,0,0,.5)] text-[16px]">
+            Event Delegation is a technique where we attach a single event
+            listener to a parent element instead of adding event listeners to
+            multiple child elements. The event bubbles up from the child to the
+            parent, which allow the parent to handle events for all its
+            children.
+          </p>
+        </div>
+        <!-- Question -->
+        <div class="bg-white mb-[15px] rounded-[8px]">
+          <p class="px-[20px] py-[16px] font-semibold text-[18px]">
+            Question-4: What is event bubbling in the DOM?
+          </p>
+          <p
+            class="px-[20px] py-[16px] border-t-[2px] border-primary2 border-dashed text-[rgba(0,0,0,.5)] text-[16px]">
+            Event bubbling in the DOM is a concept where an event, like a click
+            or keypress, starts from the target element and then "bubbles up" to
+            its parent elements, and then to their parents, all the way to the
+            root of the document. <br />
+            <br />
+            <b>we can stop it by,</b>
+            event.stopPropagation();
+            <br />
+            <b>we can also all the same event for same target element by,</b>
+            <br />
+            event.stopImmediatePropagation();
+          </p>
+        </div>
+        <!-- Question -->
+        <div class="bg-white mb-[15px] rounded-[8px]">
+          <p class="px-[20px] py-[16px] font-semibold text-[18px]">
+            Question-5: How do you create, add, and remove elements using
+            JavaScript?
+          </p>
+          <p
+            class="px-[20px] py-[16px] border-t-[2px] border-primary2 border-dashed text-[rgba(0,0,0,.5)] text-[16px]">
+            we can create any element by <br />
+            <b>document.createElement('element_name')</b> <br />
+            <br />
+            we can add any element as child by <br />
+            <b>parentNode.appendChild(childNode)</b> <br />
+            <br />
+            we can also add as next Sibling by <br />
+            <b>referenceNode.append(node)</b><br />
+            <br />
+            we can also add as previous Sibling by <br />
+            <b>referenceNode.before(node)</b><br />
+            <br />
+            to delete we can use <br />
+            <b>node.remove()</b><br />
+            <br />
+            to remove child we can use <br />
+            <b>parentNode.removeChild(chid)</b> <br />
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <script src="./scripts/toggle.js"></script>
+  </body>
+</html>
